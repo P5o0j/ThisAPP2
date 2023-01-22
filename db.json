@@ -4,5 +4,21 @@
     "make": "",
     "model": "",
     "milage": "",
-    "color": ""    
+    "color": "",
+    "owner": {
+        "name": "",
+        "addressLine1": "",
+        "addressLine2": "",
+        "city": "",
+        "postcode": "",
+        "phone": "",
+        "email": ""
+    },
+    "jobDone": [
+        {
+            "id": "",
+            "description": "",
+            "price": ""
+        }
+    ]  
 }
