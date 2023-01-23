@@ -5,9 +5,11 @@
     "make": "",
     "model": "",
     "milage": "",
+    "fuelType": "",
     "color": "",
     "owner": {
-      "name": "",
+      "firstName": "",
+      "lastName": "",
       "addressLine1": "",
       "addressLine2": "",
       "city": "",
