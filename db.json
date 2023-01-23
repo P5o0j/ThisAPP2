@@ -1,4 +1,5 @@
-{
+[
+  {
     "id": "",
     "vrn": "",
     "make": "",
@@ -6,19 +7,20 @@
     "milage": "",
     "color": "",
     "owner": {
-        "name": "",
-        "addressLine1": "",
-        "addressLine2": "",
-        "city": "",
-        "postcode": "",
-        "phone": "",
-        "email": ""
+      "name": "",
+      "addressLine1": "",
+      "addressLine2": "",
+      "city": "",
+      "postcode": "",
+      "phone": "",
+      "email": ""
     },
     "jobDone": [
-        {
-            "id": "",
-            "description": "",
-            "price": ""
-        }
-    ]  
-}
+      {
+        "id": "",
+        "description": "",
+        "price": ""
+      }
+    ]
+  }
+]
