@@ -9,11 +9,11 @@ const App = () => {
   const [cars, setCars] = useState([]);
   const [filteredCars, setFilteredCars] = useState(cars);
 
-  useEffect(() => {
-    fetch("../dbTest.json")
-      .then((response) => response.json())
-      .then((data) => setCars(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch("../dbTest.json")
+  //     .then((response) => response.json())
+  //     .then((data) => setCars(data));
+  // }, []);
 
   useEffect(() => {
     const newFilteredCars = cars.filter((cars) => {

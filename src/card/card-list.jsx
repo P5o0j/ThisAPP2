@@ -1,8 +1,9 @@
+import data from ".../dbTest.json";
 import Card from "./card";
 
-const CardList = ({ cars }) => (
+const CardList = ({ data }) => (
   <div className="card-list">
-    {cars.map((car) => {
+    {data.map((car) => {
       return <Card key={car.id} car={car} />;
     })}
   </div>
