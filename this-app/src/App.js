@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import SearchBox from "./search-box/search-box.component";
+import CardList from "./card/card-list";
+//import "././dbTest.json";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [searchField, setSearchField] = useState("");
+  const [cars, setCars] = useState([]);
+  const [filteredCars, setFilteredCars] = useState(cars);
+
+  useEffect(() => {
+    fetch("../dbTest.json")
+      .then((response) => response.json())
+      .then((data) => setCars(data));
+  }, []);
+
+  useEffect(() => {
+    const newFilteredCars = cars.filter((cars) => {
+      return cars.vrn.toLocaleUpperCase().includes(searchField);
+    });
+
+    setFilteredCars(newFilteredCars);
+  }, [cars, searchField]);
+
+  const onSearchChange = (event) => {
+    const searchFieldString = event.target.value.toLocaleUpperCase();
+    setSearchField(searchFieldString);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="app-title">This APP</h1>
+      {/* <div key={monster.id}>
+        <h1>{monster.name}</h1> */}
+
+      <SearchBox
+        onChangeHandler={onSearchChange}
+        placeholder="search cars"
+        className="cars-search-box1"
+      />
+
+      <h3>
+        <CardList cars={filteredCars} />
+      </h3>
     </div>
   );
-}
+};
 
 export default App;
