@@ -1,4 +1,4 @@
-import data from ".../dbTest.json";
+import data from "../dbTest.json";
 import Card from "./card";
 
 const CardList = ({ data }) => (
