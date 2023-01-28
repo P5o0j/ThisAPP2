@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import SearchBox from "./search-box/search-box.component";
 import CardList from "./card/card-list";
-//import "././dbTest.json";
+//import data from "./dbTest.json";
 import "./App.css";
 
 const App = () => {
@@ -9,22 +9,24 @@ const App = () => {
   const [cars, setCars] = useState([]);
   const [filteredCars, setFilteredCars] = useState(cars);
 
-  // useEffect(() => {
-  //   fetch("../dbTest.json")
-  //     .then((response) => response.json())
-  //     .then((data) => setCars(data));
-  // }, []);
+  useEffect(() => {
+    const url = "http://localhost:3000/dbTest.json";
+    fetch(url)
+      .then((response) => response.json())
+      //.then((json) => console.log(json))
+      .then((dbTest) => setCars(dbTest));
+  }, []);
 
   useEffect(() => {
-    const newFilteredCars = cars.filter((cars) => {
-      return cars.vrn.toLocaleUpperCase().includes(searchField);
+    const newFilteredCars = cars.filter((car) => {
+      return car.vrn.toLocaleLowerCase().includes(searchField);
     });
 
     setFilteredCars(newFilteredCars);
   }, [cars, searchField]);
 
   const onSearchChange = (event) => {
-    const searchFieldString = event.target.value.toLocaleUpperCase();
+    const searchFieldString = event.target.value.toLocaleLowerCase();
     setSearchField(searchFieldString);
   };
 
@@ -40,9 +42,7 @@ const App = () => {
         className="cars-search-box1"
       />
 
-      <h3>
-        <CardList cars={filteredCars} />
-      </h3>
+      <CardList cars={filteredCars} />
     </div>
   );
 };
