@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import SearchBox from "./search-box/search-box.component";
-import CardList from "./card/card-list";
+import CardList from "./card-list/card-list";
 //import data from "./dbTest.json";
 import "./App.css";
 

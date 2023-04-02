@@ -1,4 +1,4 @@
-import "./card.css";
+import "./card.scss";
 
 const Card = ({ car }) => {
   const { id, vrn, owner } = car;
