@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import "../card/card.scss";
 import {
   Card,
@@ -12,6 +13,7 @@ import {
   Link,
 } from "@chakra-ui/react";
 import CardDetail from "../card-detail/card-detail";
+import CarDetail from "../car-detail/car-detail.component";
 
 const Card2 = ({ car }) => {
   const { id, vrn, owner } = car;
@@ -19,6 +21,12 @@ const Card2 = ({ car }) => {
   const productDetails = (car) => {
     <CardDetail car2={car} />;
     console.log("clicked");
+  };
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -33,7 +41,7 @@ const Card2 = ({ car }) => {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing="2">
-            <Link to="">
+            {/* <Link to="">
               <Button
                 variant="solid"
                 colorScheme="blue"
@@ -43,7 +51,14 @@ const Card2 = ({ car }) => {
               >
                 Details
               </Button>
-            </Link>
+            </Link> */}
+            <input
+              type="button"
+              value="Details"
+              onClick={togglePopup}
+              className="details-button"
+            />
+            {isOpen && <CarDetail car2={car} handleClose={togglePopup} />}
             <Button variant="ghost" colorScheme="blue">
               TBC
             </Button>

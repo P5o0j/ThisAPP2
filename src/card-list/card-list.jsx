@@ -9,8 +9,8 @@ const CardList = ({ cars }) => (
     {cars.map((car) => {
       return (
         <>
-          <Card key={car.id} car={car} />
-          {/* <Card2 key={car.id} car={car} /> */}
+          {/* <Card key={car.id} car={car} /> */}
+          <Card2 key={car.id} car={car} />
         </>
       );
     })}
