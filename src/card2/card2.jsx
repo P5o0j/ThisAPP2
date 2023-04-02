@@ -1,7 +1,6 @@
-import "./card.css";
+import "../card/card.scss";
 import {
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
   Text,
@@ -10,10 +9,17 @@ import {
   Divider,
   ButtonGroup,
   Button,
+  Link,
 } from "@chakra-ui/react";
+import CardDetail from "../card-detail/card-detail";
 
 const Card2 = ({ car }) => {
   const { id, vrn, owner } = car;
+
+  const productDetails = (car) => {
+    <CardDetail car2={car} />;
+    console.log("clicked");
+  };
 
   return (
     <>
@@ -27,9 +33,17 @@ const Card2 = ({ car }) => {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing="2">
-            <Button variant="solid" colorScheme="blue">
-              Details
-            </Button>
+            <Link to="">
+              <Button
+                variant="solid"
+                colorScheme="blue"
+                name="Details"
+                value={"Det"}
+                onClick={productDetails}
+              >
+                Details
+              </Button>
+            </Link>
             <Button variant="ghost" colorScheme="blue">
               TBC
             </Button>
